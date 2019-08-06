@@ -1,0 +1,30 @@
+//Api Google maps marcador label FontAwesome
+
+<section id="map"></section>
+        <script>
+            var map;
+            function initMap() {
+
+                var options = {
+                    center: { lat: 0, lng: 130 },
+                    mapTypeId: 'terrain',
+                    zoom: 2
+                };
+
+                map = new google.maps.Map(document.getElementById('map'), options);
+                // Load GeoJSON.
+                map.data.loadGeoJson('url_geojson');
+                map.data.setStyle(function(feature) {
+                    return {
+                        title: feature.getProperty("name"),
+                        label: {
+                            fontFamily: "FontAwesome",
+                            fontSize: '14px',
+                            text: "\uf236",
+                            color: 'white'
+                        }
+                    }
+                });
+            }
+
+        </script>
