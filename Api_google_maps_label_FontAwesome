@@ -28,3 +28,30 @@
             }
 
         </script>
+        
+        
+        
+        
+         <script>
+            var map;
+            function initMap() {
+
+                var options = {
+                    center: { lat: 0, lng: 130 },
+                    mapTypeId: 'terrain',
+                    zoom: 2
+                };
+
+                map = new google.maps.Map(document.getElementById('map'), options);
+                // Load GeoJSON.
+                map.data.loadGeoJson('url_geojson');
+                map.data.setStyle(function(feature) {
+                    return {
+                        title: feature.getProperty("name"),
+                        icon:feature.getProperty("icon"),
+                    }
+                });
+                });
+            }
+
+        </script>
